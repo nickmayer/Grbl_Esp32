@@ -1,0 +1,9 @@
+GCode cheat sheet
+
+G91 ; use relative positioning for the XYZ axes
+G1 Y1 F3600 ; move 1mm
+
+
+$Hy ; Home Y-axis
+
+$RST=* ; Reset all GRBL EEPROM values
