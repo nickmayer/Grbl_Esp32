@@ -94,20 +94,22 @@
 #define Z2_DIRECTION_PIN        Z_DIRECTION_PIN
 #define Z_LIMIT_PIN             GPIO_NUM_22
 
-#define DEFAULT_LASER_FULL_POWER 1000
-#define DEFAULT_SPINDLE_RPM_MAX 1000.0 // rpm $30
-#define DEFAULT_SPINDLE_RPM_MIN 0.0  // rpm $31
-#define DEFAULT_LASER_MODE 1 // true $32
-#define DEFAULT_SPINDLE_MIN_VALUE 0.0  // $35 Percent of full period (extended set)
-#define DEFAULT_SPINDLE_MAX_VALUE 100.0  // $36 Percent of full period (extended set)
+#define DEFAULT_LASER_FULL_POWER    1000
+#define DEFAULT_SPINDLE_RPM_MAX     1000.0  // rpm $30
+#define DEFAULT_SPINDLE_RPM_MIN     0.0     // rpm $31
+#define DEFAULT_LASER_MODE          1       // true $32
+#define DEFAULT_SPINDLE_MIN_VALUE   0.0     // $35 Percent of full period (extended set)
+#define DEFAULT_SPINDLE_MAX_VALUE   100.0   // $36 Percent of full period (extended set)
 
 #define DEFAULT_INVERT_SPINDLE_ENABLE_PIN 0
 #define DEFAULT_SPINDLE_ENABLE_OFF_WITH_ZERO_SPEED 1
 
 #define DEFAULT_SPINDLE_FREQ    10000.0  // Hz ($33 extended set)
-#define SPINDLE_TYPE            SpindleType::PWM
-#define SPINDLE_OUTPUT_PIN      GPIO_NUM_18
+#define SPINDLE_TYPE            SpindleType::LASER
+//#define SPINDLE_OUTPUT_PIN      GPIO_NUM_18
 #define SPINDLE_ENABLE_PIN      GPIO_NUM_19
+#define LASER_OUTPUT_PIN        GPIO_NUM_18
+//#define LASER_ENABLE_PIN        SPINDLE_ENABLE_PIN
 
 //#define PROBE_PIN               GPIO_NUM_32
 
