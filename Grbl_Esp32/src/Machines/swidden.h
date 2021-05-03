@@ -104,14 +104,24 @@
 #define DEFAULT_INVERT_SPINDLE_ENABLE_PIN 0
 #define DEFAULT_SPINDLE_ENABLE_OFF_WITH_ZERO_SPEED 1
 
+/*
+To switch between laser & spindle you need to change both the mode and spindle type
+
+; LASER (default)
+$32=1
+$Spindle/Type=LASER
+
+; SPINDLE
+$32=0
+$Spindle/Type=RELAY
+*/
+
 #define DEFAULT_SPINDLE_FREQ    10000.0  // Hz ($33 extended set)
 #define SPINDLE_TYPE            SpindleType::LASER
-//#define SPINDLE_OUTPUT_PIN      GPIO_NUM_18
-#define SPINDLE_ENABLE_PIN      GPIO_NUM_19
+#define SPINDLE_OUTPUT_PIN      GPIO_NUM_2
 #define LASER_OUTPUT_PIN        GPIO_NUM_18
-//#define LASER_ENABLE_PIN        SPINDLE_ENABLE_PIN
 
-//#define PROBE_PIN               GPIO_NUM_32
+#define PROBE_PIN               GPIO_NUM_19
 
 /*
 #define CONTROL_RESET_PIN       GPIO_NUM_34  // labeled Reset, needs external pullup
