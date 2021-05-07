@@ -27,3 +27,11 @@ M5
 
 ; Dump ESP EEPROM data
 [ESP400]pwd=admin
+
+; Enable verbose messages
+$Message/Level=None
+$Message/Level=Error
+$Message/Level=Warning
+$Message/Level=Info
+$Message/Level=Debug
+$Message/Level=Verbose

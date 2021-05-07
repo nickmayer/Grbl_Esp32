@@ -60,7 +60,7 @@ void IRAM_ATTR isr_limit_switches() {
                 sys_rt_exec_alarm = ExecAlarm::HardLimit;  // Indicate hard limit critical event
             }
 #    else
-            grbl_msg_sendf(CLIENT_ALL, MsgLevel::Debug, "Hard limits");
+            grbl_msg_sendf(CLIENT_ALL, MsgLevel::Debug, "Hard limits (%08x)", limits_get_state());
             mc_reset();                                // Initiate system kill.
             sys_rt_exec_alarm = ExecAlarm::HardLimit;  // Indicate hard limit critical event
 #    endif
