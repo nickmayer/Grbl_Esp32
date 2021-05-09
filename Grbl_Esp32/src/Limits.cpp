@@ -54,8 +54,9 @@ void IRAM_ATTR isr_limit_switches() {
 #else
 #    ifdef HARD_LIMIT_FORCE_STATE_CHECK
             // Check limit pin state.
-            if (limits_get_state()) {
-                grbl_msg_sendf(CLIENT_ALL, MsgLevel::Debug, "Hard limits");
+            AxisMask state = limits_get_state();
+            if (state) {
+            grbl_msg_sendf(CLIENT_ALL, MsgLevel::Debug, "Hard limits (%08x)", state);
                 mc_reset();                                // Initiate system kill.
                 sys_rt_exec_alarm = ExecAlarm::HardLimit;  // Indicate hard limit critical event
             }
@@ -370,7 +371,7 @@ void limitCheckTask(void* pvParameters) {
         AxisMask switch_state;
         switch_state = limits_get_state();
         if (switch_state) {
-            grbl_msg_sendf(CLIENT_SERIAL, MsgLevel::Debug, "Limit Switch State %08d", switch_state);
+            grbl_msg_sendf(CLIENT_SERIAL, MsgLevel::Debug, "Limit Switch State %08x", switch_state);
             mc_reset();                                // Initiate system kill.
             sys_rt_exec_alarm = ExecAlarm::HardLimit;  // Indicate hard limit critical event
         }

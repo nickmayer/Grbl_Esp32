@@ -53,6 +53,7 @@
 #define DEFAULT_Y_ACCELERATION 300.0 // mm/sec^2
 #define DEFAULT_Z_ACCELERATION 100.0 // mm/sec^2
 
+#define ENABLE_SOFTWARE_DEBOUNCE 1 // Limit switches seem to falsely trigger when router powers off
 #define DEFAULT_INVERT_LIMIT_PINS 0 // Normal Closed buttons
 #define DEFAULT_HARD_LIMIT_ENABLE 1
 #define DEFAULT_SOFT_LIMIT_ENABLE 1
@@ -121,7 +122,8 @@ $Spindle/Type=RELAY
 #define SPINDLE_OUTPUT_PIN      GPIO_NUM_2
 #define LASER_OUTPUT_PIN        GPIO_NUM_18
 
-#define PROBE_PIN               GPIO_NUM_19
+#define DEFAULT_INVERT_PROBE_PIN 1
+#define PROBE_PIN                GPIO_NUM_19
 
 /*
 #define CONTROL_RESET_PIN       GPIO_NUM_34  // labeled Reset, needs external pullup
