@@ -36,17 +36,17 @@
 // X:
 //  200 * 8 steps per rev (1600 steps per rev)
 //  20 tooth gear, 2mm belt pitch (40 mm per rev)
-//  1600/40 steps per mm (80)
+//  1600/40 steps per mm (40)
 // Y:
-//  200 * 4 steps per rev (800 steps per rev)
+//  200 * 16 steps per rev (3200 steps per rev)
 //  20 tooth gear, 2mm belt pitch (40 mm per rev)
-//  800/40 steps per mm (20)
+//  3200/40 steps per mm (80)
 // Z:
 //  200 * 16 steps pre rev (3200 steps per rev)
 //  8mm screw lead (8mm per rev)
 //  3200 / 8 steps per mm (400)
 #define DEFAULT_X_STEPS_PER_MM 40.0
-#define DEFAULT_Y_STEPS_PER_MM 20.0
+#define DEFAULT_Y_STEPS_PER_MM 80.0
 #define DEFAULT_Z_STEPS_PER_MM 400.0
 
 #define DEFAULT_X_MAX_RATE 8000.0 // mm/min
@@ -64,7 +64,7 @@
 
 #define DEFAULT_X_MAX_TRAVEL 720.0 // mm $130 (-720 left to 0 right)
 #define DEFAULT_Y_MAX_TRAVEL 610.0 // mm $131 (0 front to 610 back)
-#define DEFAULT_Z_MAX_TRAVEL 170.0 // mm $132 (0 top to -170 bottom).
+#define DEFAULT_Z_MAX_TRAVEL 205.0 // mm $132 (0 top to -205 bottom).
 
 #define DEFAULT_HOMING_ENABLE 1
 #define DEFAULT_HOMING_SQUARED_AXES (bit(Y_AXIS) | bit(Z_AXIS)) // Y & Z have 2 motors and need to be squared
