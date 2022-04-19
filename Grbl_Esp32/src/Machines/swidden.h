@@ -31,23 +31,23 @@
 #define DEFAULT_STEP_PULSE_MICROSECONDS     3
 #define DEFAULT_STEPPER_IDLE_LOCK_TIME      255 //  255 = Keep steppers on
 
-#define DEFAULT_DIRECTION_INVERT_MASK    (bit(X_AXIS))
+#define DEFAULT_DIRECTION_INVERT_MASK    (bit(Z_AXIS) | bit(X_AXIS))
 
 // X:
-//  200 * 8 steps per rev (1600 steps per rev)
+//  200 * 16 steps per rev (3200 steps per rev)
 //  20 tooth gear, 2mm belt pitch (40 mm per rev)
-//  1600/40 steps per mm (40)
+//  3200/40 steps per mm (80)
 // Y:
 //  200 * 16 steps per rev (3200 steps per rev)
 //  20 tooth gear, 2mm belt pitch (40 mm per rev)
 //  3200/40 steps per mm (80)
 // Z:
-//  200 * 16 steps pre rev (3200 steps per rev)
+//  200 * 4 steps pre rev (800 steps per rev)
 //  8mm screw lead (8mm per rev)
-//  3200 / 8 steps per mm (400)
-#define DEFAULT_X_STEPS_PER_MM 40.0
+//  800 / 8 steps per mm (100)
+#define DEFAULT_X_STEPS_PER_MM 80.0
 #define DEFAULT_Y_STEPS_PER_MM 80.0
-#define DEFAULT_Z_STEPS_PER_MM 400.0
+#define DEFAULT_Z_STEPS_PER_MM 100.0
 
 #define DEFAULT_X_MAX_RATE 8000.0 // mm/min
 #define DEFAULT_Y_MAX_RATE 8000.0 // mm/min
@@ -62,13 +62,13 @@
 #define DEFAULT_HARD_LIMIT_ENABLE 1
 #define DEFAULT_SOFT_LIMIT_ENABLE 1
 
-#define DEFAULT_X_MAX_TRAVEL 720.0 // mm $130 (-720 left to 0 right)
+#define DEFAULT_X_MAX_TRAVEL 660.0 // mm $130 (0 to 660 right)
 #define DEFAULT_Y_MAX_TRAVEL 610.0 // mm $131 (0 front to 610 back)
-#define DEFAULT_Z_MAX_TRAVEL 205.0 // mm $132 (0 top to -205 bottom).
+#define DEFAULT_Z_MAX_TRAVEL 225.0 // mm $132 (0 top to -225 bottom).
 
 #define DEFAULT_HOMING_ENABLE 1
 #define DEFAULT_HOMING_SQUARED_AXES (bit(Y_AXIS) | bit(Z_AXIS)) // Y & Z have 2 motors and need to be squared
-#define DEFAULT_HOMING_DIR_MASK (bit(Y_AXIS)) // Y home is on the positive side of the axis
+#define DEFAULT_HOMING_DIR_MASK (bit(X_AXIS) | bit(Y_AXIS))
 #define DEFAULT_HOMING_FEED_RATE 100.0 // mm/min
 #define DEFAULT_HOMING_SEEK_RATE 1200.0 // mm/min
 #define DEFAULT_HOMING_DEBOUNCE_DELAY 500 // msec (0-65k)
