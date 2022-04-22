@@ -31,23 +31,23 @@
 #define DEFAULT_STEP_PULSE_MICROSECONDS     3
 #define DEFAULT_STEPPER_IDLE_LOCK_TIME      255 //  255 = Keep steppers on
 
-#define DEFAULT_DIRECTION_INVERT_MASK    (bit(Z_AXIS) | bit(X_AXIS))
+#define DEFAULT_DIRECTION_INVERT_MASK    (bit(X_AXIS) | bit(Z_AXIS))
 
 // X:
-//  200 * 16 steps per rev (3200 steps per rev)
+//  200 * 32 steps per rev (6400 steps per rev)
 //  20 tooth gear, 2mm belt pitch (40 mm per rev)
-//  3200/40 steps per mm (80)
+//  6400/40 steps per mm (160)
 // Y:
-//  200 * 16 steps per rev (3200 steps per rev)
+//  200 * 16 steps per rev (6400 steps per rev)
 //  20 tooth gear, 2mm belt pitch (40 mm per rev)
-//  3200/40 steps per mm (80)
+//  3200/40 steps per mm (160)
 // Z:
-//  200 * 4 steps pre rev (800 steps per rev)
+//  200 * 8 steps pre rev (1600 steps per rev)
 //  8mm screw lead (8mm per rev)
-//  800 / 8 steps per mm (100)
-#define DEFAULT_X_STEPS_PER_MM 80.0
-#define DEFAULT_Y_STEPS_PER_MM 80.0
-#define DEFAULT_Z_STEPS_PER_MM 100.0
+//  1600 / 8 steps per mm (200)
+#define DEFAULT_X_STEPS_PER_MM 160.0
+#define DEFAULT_Y_STEPS_PER_MM 160.0
+#define DEFAULT_Z_STEPS_PER_MM 200.0
 
 #define DEFAULT_X_MAX_RATE 8000.0 // mm/min
 #define DEFAULT_Y_MAX_RATE 8000.0 // mm/min
