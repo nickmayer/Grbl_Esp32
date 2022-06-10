@@ -1,70 +1,54 @@
 #pragma once
 // clang-format off
 
-/*
-    3axis_v4.h
-    Part of Grbl_ESP32
-
-    Pin assignments for the ESP32 Development Controller, v4.1 and later.
-    https://github.com/bdring/Grbl_ESP32_Development_Controller
-    https://www.tindie.com/products/33366583/grbl_esp32-cnc-development-board-v35/
-
-    2018    - Bart Dring
-    2020    - Mitch Bradley
-
-    Grbl_ESP32 is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    Grbl is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
-
-    You should have received a copy of the GNU General Public License
-    along with Grbl_ESP32.  If not, see <http://www.gnu.org/licenses/>.
-*/
-
 #define MACHINE_NAME            "swidden"
 
-#define DEFAULT_STEP_PULSE_MICROSECONDS     3
+#define DEFAULT_STEP_PULSE_MICROSECONDS     8
 #define DEFAULT_STEPPER_IDLE_LOCK_TIME      255 //  255 = Keep steppers on
 
 #define DEFAULT_DIRECTION_INVERT_MASK    (bit(X_AXIS) | bit(Y_AXIS) | bit(Z_AXIS))
 
+
 // X:
-//  200 * 32 steps per rev (6400 steps per rev)
-//  60 tooth motor 40 tooth screw, 5mm screw pitch (5*40/60 mm per rev)
-//  6400/3.3 steps per mm (213.33333)
+#define DEFAULT_X_MAX_TRAVEL    655.0 // mm $130 (0 to 690 right)
+//  200 * 32 steps per rev
+#define X_STEPS_PER_REV         (6400)
+//  40 tooth motor 60 tooth screw, 5mm screw pitch
+#define X_MM_PER_REVOLUTION     (5*40/60.0f)
+//  213.33333 steps per mm
+#define DEFAULT_X_STEPS_PER_MM  (X_STEPS_PER_REV / X_MM_PER_REVOLUTION)
+
 // Y:
-//  200 * 32 steps per rev (6400 steps per rev)
-//  60 tooth motor 40 tooth screw, 5mm screw pitch (5*60/40 mm per rev)
-//  6400/7.5 steps per mm (213.33333)
+#define DEFAULT_Y_MAX_TRAVEL    625.0 // mm $131 (0 front to 625 back)
+//  200 * 32 steps per rev
+#define Y_STEPS_PER_REV         (6400)
+//  40 tooth motor 60 tooth screw, 5mm screw pitch
+#define Y_MM_PER_REVOLUTION     (5*40/60.0f)
+//  213.33333 steps per mm
+#define DEFAULT_Y_STEPS_PER_MM  (Y_STEPS_PER_REV / Y_MM_PER_REVOLUTION)
+
 // Z:
-//  200 * 8 steps pre rev (1600 steps per rev)
-//  8mm screw lead (8mm per rev)
-//  1600 / 8 steps per mm (200)
-#define DEFAULT_X_STEPS_PER_MM (6400.0f / (10 / 3.0f))
-#define DEFAULT_Y_STEPS_PER_MM (6400.0f / (10 / 3.0f))
-#define DEFAULT_Z_STEPS_PER_MM (200.0f)
+#define DEFAULT_Z_MAX_TRAVEL    225.0 // mm $132 (0 top to -225 bottom).
+//  200 * 8 steps per rev
+#define Z_STEPS_PER_REV         (1600)
+//  8mm screw lead
+#define Z_MM_PER_REVOLUTION     (8)
+//  200 steps per mm
+#define DEFAULT_Z_STEPS_PER_MM  (Z_STEPS_PER_REV / Z_MM_PER_REVOLUTION)
 
-#define DEFAULT_X_MAX_RATE 7000.0 // mm/min
-#define DEFAULT_Y_MAX_RATE 7000.0 // mm/min
-#define DEFAULT_Z_MAX_RATE 4000.0 // mm/min
+#define DEFAULT_X_MAX_RATE      7000.0 // mm/min
+#define DEFAULT_Y_MAX_RATE      7000.0 // mm/min
+#define DEFAULT_Z_MAX_RATE      4000.0 // mm/min
 
-#define DEFAULT_X_ACCELERATION 300.0 // mm/sec^2
-#define DEFAULT_Y_ACCELERATION 300.0 // mm/sec^2
-#define DEFAULT_Z_ACCELERATION 150.0 // mm/sec^2
+#define DEFAULT_X_ACCELERATION  300.0 // mm/sec^2
+#define DEFAULT_Y_ACCELERATION  300.0 // mm/sec^2
+#define DEFAULT_Z_ACCELERATION  150.0 // mm/sec^2
 
-#define ENABLE_SOFTWARE_DEBOUNCE 1 // Limit switches seem to falsely trigger when router powers off
-#define DEFAULT_INVERT_LIMIT_PINS 0 // Normal Closed buttons
-#define DEFAULT_HARD_LIMIT_ENABLE 1
-#define DEFAULT_SOFT_LIMIT_ENABLE 1
+#define ENABLE_SOFTWARE_DEBOUNCE    1 // Limit switches seem to falsely trigger when router powers off
+#define DEFAULT_INVERT_LIMIT_PINS   0 // Normal Closed buttons
+#define DEFAULT_HARD_LIMIT_ENABLE   1
+#define DEFAULT_SOFT_LIMIT_ENABLE   1
 
-#define DEFAULT_X_MAX_TRAVEL 655.0 // mm $130 (0 to 690 right)
-#define DEFAULT_Y_MAX_TRAVEL 625.0 // mm $131 (0 front to 625 back)
-#define DEFAULT_Z_MAX_TRAVEL 225.0 // mm $132 (0 top to -225 bottom).
 
 #define DEFAULT_HOMING_ENABLE 1
 #define DEFAULT_HOMING_SQUARED_AXES (bit(Y_AXIS) | bit(Z_AXIS)) // Y & Z have 2 motors and need to be squared
