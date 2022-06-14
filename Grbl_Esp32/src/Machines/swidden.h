@@ -3,46 +3,63 @@
 
 #define MACHINE_NAME            "swidden"
 
-#define DEFAULT_STEP_PULSE_MICROSECONDS     8
+#define DEFAULT_STEP_PULSE_MICROSECONDS     4
 #define DEFAULT_STEPPER_IDLE_LOCK_TIME      255 //  255 = Keep steppers on
 
 #define DEFAULT_DIRECTION_INVERT_MASK    (bit(X_AXIS) | bit(Y_AXIS) | bit(Z_AXIS))
 
+// X:
+//  200 * 32 steps per rev (6400 steps per rev)
+//  60 tooth motor 40 tooth screw, 5mm screw pitch (5*40/60 mm per rev)
+//  6400/3.3 steps per mm (213.33333)
+// Y:
+//  200 * 32 steps per rev (6400 steps per rev)
+//  60 tooth motor 40 tooth screw, 5mm screw pitch (5*60/40 mm per rev)
+//  6400/7.5 steps per mm (213.33333)
+// Z:
+//  200 * 8 steps pre rev (1600 steps per rev)
+//  8mm screw lead (8mm per rev)
+//  1600 / 8 steps per mm (200)
+//#define DEFAULT_X_STEPS_PER_MM (6400.0f / (10 / 3.0f))
+//#define DEFAULT_Y_STEPS_PER_MM (6400.0f / (10 / 3.0f))
+//#define DEFAULT_Z_STEPS_PER_MM (200.0f)
+
 
 // X:
-#define DEFAULT_X_MAX_TRAVEL    655.0 // mm $130 (0 to 690 right)
+#define DEFAULT_X_MAX_TRAVEL    655.0 // mm (0 to 690 right) [$130]
 //  200 * 32 steps per rev
-#define X_STEPS_PER_REV         (6400)
+#define X_STEPS_PER_REV         (800)
 //  40 tooth motor 60 tooth screw, 5mm screw pitch
 #define X_MM_PER_REVOLUTION     (5*40/60.0f)
-//  213.33333 steps per mm
+//  240 steps per mm
 #define DEFAULT_X_STEPS_PER_MM  (X_STEPS_PER_REV / X_MM_PER_REVOLUTION)
+#define X_MAX_RATE_MM_SEC       80     // mm/sec
+#define DEFAULT_X_MAX_RATE      (X_MAX_RATE_MM_SEC * 60) // mm/min [$110]
+#define DEFAULT_X_ACCELERATION  150.0 // mm/sec^2 [$120]
 
 // Y:
-#define DEFAULT_Y_MAX_TRAVEL    625.0 // mm $131 (0 front to 625 back)
+#define DEFAULT_Y_MAX_TRAVEL    625.0 // mm (0 front to 625 back) [$131]
 //  200 * 32 steps per rev
-#define Y_STEPS_PER_REV         (6400)
+#define Y_STEPS_PER_REV         (800)
 //  40 tooth motor 60 tooth screw, 5mm screw pitch
 #define Y_MM_PER_REVOLUTION     (5*40/60.0f)
-//  213.33333 steps per mm
+//  240 steps per mm
 #define DEFAULT_Y_STEPS_PER_MM  (Y_STEPS_PER_REV / Y_MM_PER_REVOLUTION)
+#define Y_MAX_RATE_MM_SEC       80     // mm/sec
+#define DEFAULT_Y_MAX_RATE      (Y_MAX_RATE_MM_SEC * 60) // mm/min [$111]
+#define DEFAULT_Y_ACCELERATION  150.0 // mm/sec^2 [$121]
 
 // Z:
-#define DEFAULT_Z_MAX_TRAVEL    225.0 // mm $132 (0 top to -225 bottom).
+#define DEFAULT_Z_MAX_TRAVEL    225.0 // mm (0 top to -225 bottom). [$132]
 //  200 * 8 steps per rev
 #define Z_STEPS_PER_REV         (1600)
 //  8mm screw lead
 #define Z_MM_PER_REVOLUTION     (8)
 //  200 steps per mm
 #define DEFAULT_Z_STEPS_PER_MM  (Z_STEPS_PER_REV / Z_MM_PER_REVOLUTION)
-
-#define DEFAULT_X_MAX_RATE      7000.0 // mm/min
-#define DEFAULT_Y_MAX_RATE      7000.0 // mm/min
-#define DEFAULT_Z_MAX_RATE      4000.0 // mm/min
-
-#define DEFAULT_X_ACCELERATION  300.0 // mm/sec^2
-#define DEFAULT_Y_ACCELERATION  300.0 // mm/sec^2
-#define DEFAULT_Z_ACCELERATION  150.0 // mm/sec^2
+#define Z_MAX_RATE_MM_SEC       50.0   // mm/sec
+#define DEFAULT_Z_MAX_RATE      (Z_MAX_RATE_MM_SEC * 60) // mm/min [$112]
+#define DEFAULT_Z_ACCELERATION  100.0  // mm/sec^2 [$122]
 
 #define ENABLE_SOFTWARE_DEBOUNCE    1 // Limit switches seem to falsely trigger when router powers off
 #define DEFAULT_INVERT_LIMIT_PINS   0 // Normal Closed buttons
