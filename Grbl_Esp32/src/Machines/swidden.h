@@ -28,10 +28,10 @@
 // X:
 #define DEFAULT_X_MAX_TRAVEL    655.0 // mm (0 to 690 right) [$130]
 //  200 * 32 steps per rev
-#define X_STEPS_PER_REV         (800)
+#define X_STEPS_PER_REV         (400)
 //  40 tooth motor 60 tooth screw, 5mm screw pitch
 #define X_MM_PER_REVOLUTION     (5*40/60.0f)
-//  240 steps per mm
+//  120 steps per mm
 #define DEFAULT_X_STEPS_PER_MM  (X_STEPS_PER_REV / X_MM_PER_REVOLUTION)
 #define X_MAX_RATE_MM_SEC       80     // mm/sec
 #define DEFAULT_X_MAX_RATE      (X_MAX_RATE_MM_SEC * 60) // mm/min [$110]
@@ -40,10 +40,10 @@
 // Y:
 #define DEFAULT_Y_MAX_TRAVEL    625.0 // mm (0 front to 625 back) [$131]
 //  200 * 32 steps per rev
-#define Y_STEPS_PER_REV         (800)
-//  40 tooth motor 60 tooth screw, 5mm screw pitch
-#define Y_MM_PER_REVOLUTION     (5*40/60.0f)
-//  240 steps per mm
+#define Y_STEPS_PER_REV         (400)
+//  20 tooth motor 100 tooth screw, 5mm screw pitch
+#define Y_MM_PER_REVOLUTION     (5*20/100.0f)
+//  400 steps per mm
 #define DEFAULT_Y_STEPS_PER_MM  (Y_STEPS_PER_REV / Y_MM_PER_REVOLUTION)
 #define Y_MAX_RATE_MM_SEC       80     // mm/sec
 #define DEFAULT_Y_MAX_RATE      (Y_MAX_RATE_MM_SEC * 60) // mm/min [$111]
