@@ -76,26 +76,28 @@
 #define DEFAULT_HOMING_CYCLE_2 bit(X_AXIS)
 
 // TODO: Add a NOT gate and invert this so open is disabled?
-#define STEPPERS_DISABLE_PIN    GPIO_NUM_15
+#define STEPPERS_DISABLE_PIN    GPIO_NUM_2
 
 // Left/Right
 #define X_STEP_PIN              GPIO_NUM_16
-#define X_DIRECTION_PIN         GPIO_NUM_5
-#define X_LIMIT_PIN             GPIO_NUM_32
+#define X_DIRECTION_PIN         GPIO_NUM_4
+#define X_LIMIT_PIN             GPIO_NUM_36
 
 // Back/Forward
-#define Y_STEP_PIN              GPIO_NUM_19
-#define Y2_STEP_PIN             GPIO_NUM_17
+#define Y_STEP_PIN              GPIO_NUM_17
+#define Y2_STEP_PIN             GPIO_NUM_19
 #define Y_DIRECTION_PIN         GPIO_NUM_18
 #define Y2_DIRECTION_PIN        Y_DIRECTION_PIN
-#define Y_LIMIT_PIN             GPIO_NUM_33
+#define Y_LIMIT_PIN             GPIO_NUM_34
+#define Y2_LIMIT_PIN            GPIO_NUM_39
 
 // Up/Down
-#define Z_STEP_PIN              GPIO_NUM_23
-#define Z2_STEP_PIN             GPIO_NUM_21
+#define Z_STEP_PIN              GPIO_NUM_21
+#define Z2_STEP_PIN             GPIO_NUM_23
 #define Z_DIRECTION_PIN         GPIO_NUM_22
 #define Z2_DIRECTION_PIN        Z_DIRECTION_PIN
-#define Z_LIMIT_PIN             GPIO_NUM_25
+#define Z_LIMIT_PIN             GPIO_NUM_32
+#define Z2_LIMIT_PIN            GPIO_NUM_35
 
 #define DEFAULT_LASER_FULL_POWER    1000
 #define DEFAULT_SPINDLE_RPM_MAX     1000.0  // rpm $30
@@ -123,11 +125,10 @@ $Spindle/Type=RELAY
 #define DEFAULT_SPINDLE_FREQ    10000.0  // Hz ($33 extended set)
 #define SPINDLE_TYPE            SpindleType::LASER
 #define SPINDLE_OUTPUT_PIN      GPIO_NUM_13
-
 #define LASER_OUTPUT_PIN        GPIO_NUM_27
 
 #define DEFAULT_INVERT_PROBE_PIN 1
-#define PROBE_PIN                GPIO_NUM_26
+#define PROBE_PIN               GPIO_NUM_33
 
 /*
 #define CONTROL_RESET_PIN       GPIO_NUM_34  // labeled Reset, needs external pullup
